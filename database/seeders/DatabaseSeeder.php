@@ -11,17 +11,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Order matters: roles first, then the admin user, then the GRC catalogs.
-        $this->call([
-            RoleSeeder::class,
-            // GRC domain seeders are appended here in Phase 2:
-            // ControlSeeder::class, ClauseSeeder::class, DocumentSeeder::class, ...
-        ]);
-
-        $email = env('FIRST_SUPERUSER_EMAIL', 'admin@company.com');
+        // 1) Roles, then the first superuser (sample seeders assign work to it).
+        $this->call(RoleSeeder::class);
 
         $admin = User::firstOrCreate(
-            ['email' => $email],
+            ['email' => env('FIRST_SUPERUSER_EMAIL', 'admin@company.com')],
             [
                 'full_name' => env('FIRST_SUPERUSER_NAME', 'GRC Administrator'),
                 'hashed_password' => Hash::make(env('FIRST_SUPERUSER_PASSWORD', 'Admin@123')),
@@ -34,5 +28,21 @@ class DatabaseSeeder extends Seeder
         if ($ciso = Role::where('name', 'CISO')->first()) {
             $admin->roles()->syncWithoutDetaching([$ciso->id]);
         }
+
+        // 2) GRC catalogs + sample data.
+        $this->call([
+            ControlSeeder::class,        // 148 controls (5 frameworks) + 96 crosswalk mappings
+            ClauseSeeder::class,         // 30 ISMS clauses (4-10)
+            DocumentSeeder::class,       // 17 mandatory documents
+            InterestedPartySeeder::class,
+            ObjectiveSeeder::class,
+            MetricSeeder::class,         // metrics + measurement history
+            SupplierSeeder::class,
+            IncidentSeeder::class,
+            TrainingSeeder::class,
+            AssessmentSeeder::class,
+            TaskSeeder::class,
+            PostureSnapshotSeeder::class,
+        ]);
     }
 }

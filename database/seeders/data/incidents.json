@@ -1,0 +1,47 @@
+[
+ {
+  "title": "Phishing email reported by staff",
+  "category": "Phishing",
+  "severity": "Medium",
+  "status": "Resolved",
+  "reporter": "Service Desk",
+  "data_breach": false,
+  "description": "Several staff reported a credential-harvesting email impersonating the IT helpdesk.",
+  "affected_assets": "Email service; 3 user mailboxes",
+  "containment_actions": "Blocked sender domain and URL at the gateway; reset 2 affected accounts; sent awareness reminder.",
+  "lessons_learned": "Add the lookalike domain to the blocklist; reinforce reporting via the phishing button."
+ },
+ {
+  "title": "Malware detected on a laptop",
+  "category": "Malware",
+  "severity": "High",
+  "status": "In Progress",
+  "reporter": "EDR Alert",
+  "data_breach": false,
+  "description": "Endpoint protection flagged and quarantined a trojan dropper on a field laptop.",
+  "affected_assets": "1 corporate laptop (LAP-0345)",
+  "containment_actions": "Isolated the host from the network; quarantined the file; investigation ongoing."
+ },
+ {
+  "title": "Public storage bucket misconfiguration",
+  "category": "Misconfiguration",
+  "severity": "High",
+  "status": "Triaged",
+  "reporter": "Cloud Security Scan",
+  "data_breach": false,
+  "description": "A cloud storage bucket was found with overly permissive public read access.",
+  "affected_assets": "Cloud storage bucket (non-production)"
+ },
+ {
+  "title": "Lost company mobile phone",
+  "category": "Lost/Stolen Device",
+  "severity": "Low",
+  "status": "Closed",
+  "reporter": "Employee",
+  "data_breach": false,
+  "description": "An employee reported a lost corporate mobile phone while travelling.",
+  "affected_assets": "1 corporate mobile device",
+  "containment_actions": "Remote-wiped via MDM; revoked sessions.",
+  "lessons_learned": "Confirm MDM enrolment coverage for all mobile devices."
+ }
+]

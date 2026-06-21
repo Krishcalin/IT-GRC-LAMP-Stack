@@ -1,0 +1,52 @@
+[
+ {
+  "title": "Review and approve Information Security Policy",
+  "task_type": "Approval",
+  "priority": "High",
+  "status": "Open",
+  "resource_type": "document",
+  "resource_label": "Information Security Policy",
+  "due_offset_days": 7,
+  "description": "Top-management sign-off required before publication (Clause 5.2 / 7.5.2)."
+ },
+ {
+  "title": "Complete Statement of Applicability sign-off",
+  "task_type": "Approval",
+  "priority": "High",
+  "status": "Open",
+  "resource_type": "soa",
+  "resource_label": "Statement of Applicability",
+  "due_offset_days": 14,
+  "description": "Risk owner to approve the SoA and accept residual risk (Clause 6.1.3)."
+ },
+ {
+  "title": "Remediate critical vulnerabilities past SLA",
+  "task_type": "Remediation",
+  "priority": "Critical",
+  "status": "In Progress",
+  "resource_type": "metric",
+  "resource_label": "Critical vulns past SLA (open)",
+  "due_offset_days": -3,
+  "description": "Four critical vulnerabilities remain open beyond the 14-day SLA."
+ },
+ {
+  "title": "Quarterly access-rights review",
+  "task_type": "Review",
+  "priority": "Medium",
+  "status": "Open",
+  "resource_type": "control",
+  "resource_label": "A.5.18 Access rights",
+  "due_offset_days": 21,
+  "description": "Recertify privileged and application access rights for the quarter."
+ },
+ {
+  "title": "Vendor security assessment — Payroll SaaS",
+  "task_type": "Action",
+  "priority": "Medium",
+  "status": "Open",
+  "resource_type": "supplier",
+  "resource_label": "Payroll SaaS Vendor",
+  "due_offset_days": 30,
+  "description": "Issue and review the security questionnaire for the payroll provider."
+ }
+]

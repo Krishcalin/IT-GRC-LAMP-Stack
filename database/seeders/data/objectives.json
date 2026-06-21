@@ -1,0 +1,26 @@
+[
+ {
+  "title": "Reduce workforce phishing susceptibility",
+  "measure": "Phishing simulation click-through rate",
+  "target_value": "<= 5%",
+  "unit": "%",
+  "status": "On Track",
+  "description": "Lower the proportion of staff who click simulated phishing links through targeted awareness campaigns."
+ },
+ {
+  "title": "Remediate critical vulnerabilities within SLA",
+  "measure": "% of critical vulnerabilities remediated within 14 days",
+  "target_value": ">= 95%",
+  "unit": "%",
+  "status": "At Risk",
+  "description": "Ensure critical technical vulnerabilities are remediated within the defined service level."
+ },
+ {
+  "title": "Maintain security awareness coverage",
+  "measure": "% of in-scope staff completing annual training",
+  "target_value": ">= 98%",
+  "unit": "%",
+  "status": "On Track",
+  "description": "Sustain high completion of mandatory annual information security awareness training."
+ }
+]

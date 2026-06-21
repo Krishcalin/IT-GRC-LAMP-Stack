@@ -1,0 +1,64 @@
+[
+ {
+  "title": "Annual Security Awareness 2026",
+  "training_type": "Awareness Campaign",
+  "topic": "General security",
+  "status": "In Progress",
+  "audience": "All staff",
+  "description": "Mandatory annual information security awareness training for all personnel.",
+  "records": [
+   {
+    "participant": "Alex Morgan",
+    "status": "Completed",
+    "score": 95
+   },
+   {
+    "participant": "Jordan Lee",
+    "status": "Completed",
+    "score": 88
+   },
+   {
+    "participant": "Priya Sharma",
+    "status": "Completed",
+    "score": 100
+   },
+   {
+    "participant": "Sam Carter",
+    "status": "Assigned"
+   }
+  ]
+ },
+ {
+  "title": "Q2 Phishing Simulation",
+  "training_type": "Phishing Simulation",
+  "topic": "Phishing",
+  "status": "Completed",
+  "audience": "All staff",
+  "description": "Simulated phishing campaign measuring click-through and reporting rates.",
+  "records": [
+   {
+    "participant": "Alex Morgan",
+    "status": "Completed",
+    "score": 100
+   },
+   {
+    "participant": "Jordan Lee",
+    "status": "Completed",
+    "score": 100
+   },
+   {
+    "participant": "Sam Carter",
+    "status": "Overdue"
+   }
+  ]
+ },
+ {
+  "title": "Developer Secure Coding Onboarding",
+  "training_type": "Role-based Training",
+  "topic": "Secure development",
+  "status": "Planned",
+  "audience": "Engineering team",
+  "description": "Role-based secure coding training for new engineering hires.",
+  "records": []
+ }
+]

@@ -1,0 +1,73 @@
+[
+ {
+  "title": "ISO 27001 Annex A Control Self-Assessment",
+  "assessment_type": "Control Self-Assessment",
+  "framework": "ISO 27001:2022",
+  "status": "In Progress",
+  "description": "CMMI-style maturity self-assessment of selected Annex A controls.",
+  "items": [
+   {
+    "clause": "A.5.1",
+    "maturity": 3,
+    "result": "Compliant",
+    "comment": "Policy approved and communicated."
+   },
+   {
+    "clause": "A.5.7",
+    "maturity": 2,
+    "result": "Partial",
+    "comment": "Threat intelligence is currently ad hoc."
+   },
+   {
+    "clause": "A.8.7",
+    "maturity": 4,
+    "result": "Compliant",
+    "comment": "EDR deployed fleet-wide with central management."
+   },
+   {
+    "clause": "A.8.16",
+    "maturity": 2,
+    "result": "Partial",
+    "comment": "Monitoring coverage incomplete for SaaS."
+   },
+   {
+    "clause": "A.5.18",
+    "maturity": 3,
+    "result": "Compliant",
+    "comment": "Quarterly access reviews in place."
+   }
+  ]
+ },
+ {
+  "title": "Vendor Security Questionnaire — Payroll SaaS",
+  "assessment_type": "Vendor Questionnaire",
+  "supplier": "Payroll SaaS Vendor",
+  "status": "In Progress",
+  "description": "Security due-diligence questionnaire for the payroll provider.",
+  "items": [
+   {
+    "question": "Do you hold a current ISO 27001 or SOC 2 report?",
+    "result": "Yes",
+    "response": "ISO 27001 + ISAE 3402."
+   },
+   {
+    "question": "Is customer data encrypted at rest and in transit?",
+    "result": "Yes"
+   },
+   {
+    "question": "Do you support SSO / SAML federation?",
+    "result": "No",
+    "comment": "On roadmap for next release."
+   },
+   {
+    "question": "Is there a documented incident response and breach-notification process?",
+    "result": "Yes"
+   },
+   {
+    "question": "Are subprocessors disclosed and contractually bound (DPAs)?",
+    "result": "Partial",
+    "comment": "List provided; DPAs being finalized."
+   }
+  ]
+ }
+]

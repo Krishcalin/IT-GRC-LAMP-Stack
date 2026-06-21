@@ -1,0 +1,57 @@
+[
+ {
+  "name": "Phishing simulation click-through rate",
+  "metric_type": "KRI",
+  "objective_ref": "OBJ-001",
+  "target_value": 5,
+  "current_value": 8,
+  "unit": "%",
+  "direction": "lower_is_better",
+  "frequency": "Quarterly",
+  "description": "Percentage of recipients clicking a simulated phishing link during the campaign."
+ },
+ {
+  "name": "Critical vulnerabilities remediated within SLA",
+  "metric_type": "KPI",
+  "objective_ref": "OBJ-002",
+  "target_value": 95,
+  "current_value": 91,
+  "unit": "%",
+  "direction": "higher_is_better",
+  "frequency": "Monthly",
+  "description": "Percentage of critical vulnerabilities closed within the 14-day SLA window."
+ },
+ {
+  "name": "Critical vulnerabilities past SLA (open)",
+  "metric_type": "KRI",
+  "objective_ref": "OBJ-002",
+  "target_value": 0,
+  "current_value": 4,
+  "unit": "count",
+  "direction": "lower_is_better",
+  "frequency": "Monthly",
+  "description": "Number of critical vulnerabilities still open beyond the remediation SLA."
+ },
+ {
+  "name": "Annual awareness training completion",
+  "metric_type": "KCI",
+  "objective_ref": "OBJ-003",
+  "target_value": 98,
+  "current_value": 99,
+  "unit": "%",
+  "direction": "higher_is_better",
+  "frequency": "Annual",
+  "description": "Percentage of in-scope personnel who completed the mandatory awareness training."
+ },
+ {
+  "name": "Mean time to detect (MTTD)",
+  "metric_type": "KPI",
+  "objective_ref": null,
+  "target_value": 60,
+  "current_value": 45,
+  "unit": "minutes",
+  "direction": "lower_is_better",
+  "frequency": "Continuous",
+  "description": "Average time from a security event occurring to its detection."
+ }
+]

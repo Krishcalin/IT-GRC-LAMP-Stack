@@ -1,0 +1,37 @@
+[
+ {
+  "name": "Customers",
+  "party_type": "External",
+  "category": "Customer",
+  "addressed_in_isms": true,
+  "requirements": "Protection of their data, contractual security obligations, and timely breach notification."
+ },
+ {
+  "name": "Regulatory Authorities",
+  "party_type": "External",
+  "category": "Regulator",
+  "addressed_in_isms": true,
+  "requirements": "Compliance with applicable laws and regulations (e.g. data protection, sector-specific rules)."
+ },
+ {
+  "name": "Employees",
+  "party_type": "Internal",
+  "category": "Employee",
+  "addressed_in_isms": true,
+  "requirements": "Clear security policies, awareness and training, and workable, non-disruptive processes."
+ },
+ {
+  "name": "Suppliers & Service Providers",
+  "party_type": "External",
+  "category": "Supplier",
+  "addressed_in_isms": true,
+  "requirements": "Agreed information security requirements in contracts, right-to-audit, and incident reporting channels."
+ },
+ {
+  "name": "Top Management & Owners",
+  "party_type": "Internal",
+  "category": "Owner",
+  "addressed_in_isms": true,
+  "requirements": "Protection of business value, risk kept within appetite, and effective, efficient use of resources."
+ }
+]
