@@ -49,6 +49,51 @@ The complete model/route/page/seed inventory used to drive this port is the orig
 Key counts: 93 Annex A + 12 ENR + 22 CSF + 13 SOC2 + 8 IEC 62443 = **148 controls**, 96 crosswalk
 mappings, 30 ISMS clauses, 17 mandatory documents, 6 roles.
 
+## Architecture (request flow)
+Browser (Blade HTML + Tailwind/Alpine/Chart.js via CDN) → **Apache** (`mod_rewrite`, docroot
+`public/`) → `public/index.php` → **Laravel**: `routes/web.php` → session auth + `EnsurePermission`
+(RBAC) → 17 module controllers → `App\Support` helpers → **Eloquent** (24 UUID models) → **MySQL**
+(+ `storage/app/evidence` for uploads). Seeded by `migrate --seed` from
+`database/seeders/data/*.json`. Diagram: [`docs/architecture.svg`](docs/architecture.svg); full
+install/hosting guide in the README.
+
+## Module map (controller · models · tables · special actions)
+| Module | Controller | Model(s) | Table(s) | Beyond CRUD |
+|---|---|---|---|---|
+| Controls | `ControlController` | Control, ControlMapping | controls, control_mappings | crosswalk add/remove (both directions) |
+| Risks | `RiskController` | Risk | risks, risk_controls | link/unlink controls; `recalculateLevels()` |
+| ISMS Clauses | `ClauseController` | ClauseRequirement | clause_requirements | conformity update only |
+| SoA | `SoaController` | SoaEntry | soa_entries | per-control upsert (`updateOrCreate`) |
+| Documents | `DocumentController` | DocumentedInformation | documented_information | — |
+| Policies | `PolicyController` | Policy, PolicyAcknowledgment | policies, policy_acknowledgments | acknowledge; approver/approved_at on Approve |
+| Suppliers | `SupplierController` | Supplier | suppliers | — |
+| Incidents | `IncidentController` | Incident | incidents | auto `resolved_at` |
+| Assets | `AssetController` | Asset | assets, asset_risks | — |
+| Interested Parties | `InterestedPartyController` | InterestedParty | interested_parties | param `interested_party` |
+| Objectives | `ObjectiveController` | Objective | objectives | — |
+| Metrics | `MetricController` | Metric, MetricMeasurement | metrics, metric_measurements | add measurement (updates current); `rag` accessor; trend chart |
+| Tasks | `TaskController` | Task | tasks | `{id}/decision` (approval); `overdue` accessor |
+| Assessments | `AssessmentController` | Assessment, AssessmentItem | assessments, assessment_items | `populate?framework=`; items CRUD; `score`/`avg_maturity` accessors |
+| Audits | `AuditController` | Audit, AuditFinding | audits, audit_findings | findings CRUD; auto `closed_at` |
+| Training | `TrainingController` | TrainingCampaign, TrainingRecord | training_campaigns, training_records | records CRUD; `completion_rate` accessor |
+| Evidence | `EvidenceController` | Evidence | evidence | upload/download/delete (`evidence` disk) |
+| Dashboard | `DashboardController` | — | — | `Posture::recordSnapshot()` on load |
+| Analytics | `AnalyticsController` | PostureSnapshot | posture_snapshots | heatmap (inherent/residual), posture trend, my-work |
+| Frameworks | `FrameworkController` | — | — | cross-framework coverage matrix |
+| Reports | `ReportController` | — | — | CSV export: controls/risks/soa/findings/suppliers |
+| Reminders | `ReminderController` | — | — | overdue/upcoming across registers |
+| Auth | `Auth\LoginController` | User, Role | users, roles, role_user | session login/logout |
+
+## Data model — tables
+Framework: `users`, `roles`, `role_user`, `password_reset_tokens`, `sessions`, `cache`,
+`cache_locks`, `jobs`, `job_batches`, `failed_jobs`.
+Domain (19 migrations): `controls`, `control_mappings`, `clause_requirements`,
+`documented_information`, `interested_parties`, `objectives`, `metrics`, `metric_measurements`,
+`posture_snapshots`, `suppliers`, `risks`, `risk_controls`, `incidents`, `soa_entries`, `audits`,
+`audit_findings`, `policies`, `policy_acknowledgments`, `assets`, `asset_risks`, `tasks`,
+`assessments`, `assessment_items`, `evidence`, `training_campaigns`, `training_records`,
+`activity_log`.
+
 ## Testing
 - `tests/Unit/ScoringTest.php` — pure scoring helpers vs the original outputs.
 - `tests/Feature/AuthTest.php` — login, inactive-user rejection, role seeding.

@@ -210,6 +210,10 @@ standards.
 There is **no Node/JavaScript toolchain** — the front end is plain Blade + CDN assets, so the only
 build tool you need is Composer.
 
+<p align="center">
+  <img src="docs/architecture.svg" alt="IT-GRC Portal LAMP/Laravel architecture — request flow" width="100%">
+</p>
+
 ---
 
 ## Requirements
