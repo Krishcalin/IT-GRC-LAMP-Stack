@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" fill="none" role="img" aria-label="IT-GRC Portal — LAMP / Laravel Edition — ISO/IEC 27001:2022 Governance, Risk and Compliance">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070b15"/>
+      <stop offset="48%" stop-color="#0d1426"/>
+      <stop offset="100%" stop-color="#080c17"/>
+    </linearGradient>
+    <radialGradient id="auroraRed" cx="0.82" cy="0.16" r="0.6">
+      <stop offset="0%" stop-color="#ff2d20" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ff2d20" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraIndigo" cx="0.12" cy="0.9" r="0.6">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="titleGrad" x1="210" y1="80" x2="560" y2="125" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#dbe2ff"/>
+      <stop offset="100%" stop-color="#a5b4fc"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="50" y1="8" x2="50" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="50%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="check" x1="30" y1="60" x2="70" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff2d20" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#ff2d20"/>
+      <stop offset="52%" stop-color="#6366f1"/>
+      <stop offset="82%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="rgba(148,163,184,0.045)" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="hex" width="48" height="56" patternUnits="userSpaceOnUse">
+      <path d="M24 2 L46 15 L46 41 L24 54 L2 41 L2 15 Z" fill="none" stroke="rgba(99,102,241,0.05)" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="340" fill="url(#bg)"/>
+  <rect width="1200" height="340" fill="url(#hex)"/>
+  <rect width="1200" height="340" fill="url(#grid)"/>
+  <rect width="1200" height="340" fill="url(#auroraRed)"/>
+  <rect width="1200" height="340" fill="url(#auroraIndigo)"/>
+
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)" opacity="0.9"/>
+  <rect x="0" y="338" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
+
+  <!-- HUD corner brackets -->
+  <g stroke="#6366f1" stroke-width="1.5" opacity="0.30" stroke-linecap="round">
+    <path d="M26 18 L64 18 M26 18 L26 44" fill="none"/>
+    <path d="M1174 18 L1136 18 M1174 18 L1174 44" fill="none"/>
+    <path d="M26 322 L64 322 M26 322 L26 296" fill="none"/>
+    <path d="M1174 322 L1136 322 M1174 322 L1174 296" fill="none"/>
+  </g>
+
+  <!-- Left shield emblem -->
+  <circle cx="113" cy="168" r="78" fill="#6366f1" opacity="0.12"/>
+  <g transform="translate(60, 92)">
+    <path d="M50 8 L92 28 L92 78 C92 114 71 140 50 150 C29 140 8 114 8 78 L8 28 Z" fill="url(#shield)" filter="url(#glow)"/>
+    <path d="M50 16 L85 33 L85 78 C85 109 67 132 50 141 C33 132 15 109 15 78 L15 33 Z" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+    <path d="M50 16 L85 33 L85 56 C62 50 30 56 15 56 L15 33 Z" fill="rgba(255,255,255,0.05)"/>
+    <path d="M33 80 L46 93 L70 60" stroke="url(#check)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- Title block -->
+  <text x="212" y="64" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#f87171" letter-spacing="3">LAMP · LARAVEL EDITION · ISO/IEC 27001:2022</text>
+  <text x="210" y="112" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">IT-GRC Portal</text>
+  <text x="212" y="140" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="15" fill="rgba(226,232,240,0.62)" letter-spacing="0.3">Governance, Risk &amp; Compliance — built for LAMP / Laravel shops</text>
+
+  <!-- Framework chips -->
+  <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="600">
+    <g transform="translate(210, 160)">
+      <rect width="118" height="28" rx="14" fill="rgba(129,140,248,0.10)" stroke="rgba(129,140,248,0.35)" stroke-width="1"/>
+      <circle cx="16" cy="14" r="3.5" fill="#818cf8"/><text x="28" y="18" fill="#c7d2fe">ISO 27001:2022</text>
+    </g>
+    <g transform="translate(338, 160)">
+      <rect width="118" height="28" rx="14" fill="rgba(45,212,191,0.10)" stroke="rgba(45,212,191,0.35)" stroke-width="1"/>
+      <circle cx="16" cy="14" r="3.5" fill="#2dd4bf"/><text x="28" y="18" fill="#99f6e4">ISO 27019:2024</text>
+    </g>
+    <g transform="translate(466, 160)">
+      <rect width="104" height="28" rx="14" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.35)" stroke-width="1"/>
+      <circle cx="16" cy="14" r="3.5" fill="#38bdf8"/><text x="28" y="18" fill="#bae6fd">NIST CSF 2.0</text>
+    </g>
+    <g transform="translate(580, 160)">
+      <rect width="62" height="28" rx="14" fill="rgba(251,191,36,0.10)" stroke="rgba(251,191,36,0.35)" stroke-width="1"/>
+      <circle cx="16" cy="14" r="3.5" fill="#fbbf24"/><text x="28" y="18" fill="#fde68a">SOC 2</text>
+    </g>
+    <g transform="translate(652, 160)">
+      <rect width="116" height="28" rx="14" fill="rgba(74,222,128,0.10)" stroke="rgba(74,222,128,0.35)" stroke-width="1"/>
+      <circle cx="16" cy="14" r="3.5" fill="#4ade80"/><text x="28" y="18" fill="#bbf7d0">IEC 62443-2-1</text>
+    </g>
+  </g>
+
+  <!-- Stat cells -->
+  <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+    <g transform="translate(210, 212)">
+      <rect width="156" height="60" rx="10" fill="rgba(129,140,248,0.07)" stroke="rgba(129,140,248,0.20)" stroke-width="1"/>
+      <text x="20" y="38" font-size="30" font-weight="800" fill="#a5b4fc">5</text>
+      <text x="78" y="26" font-size="10.5" font-weight="700" fill="rgba(226,232,240,0.85)" letter-spacing="0.5">FRAMEWORKS</text>
+      <text x="78" y="42" font-size="9" fill="rgba(148,163,184,0.7)">cross-mapped</text>
+    </g>
+    <g transform="translate(376, 212)">
+      <rect width="156" height="60" rx="10" fill="rgba(52,211,153,0.07)" stroke="rgba(52,211,153,0.20)" stroke-width="1"/>
+      <text x="20" y="38" font-size="30" font-weight="800" fill="#34d399">148</text>
+      <text x="92" y="26" font-size="10.5" font-weight="700" fill="rgba(226,232,240,0.85)" letter-spacing="0.5">CONTROLS</text>
+      <text x="92" y="42" font-size="9" fill="rgba(148,163,184,0.7)">IT &amp; OT</text>
+    </g>
+    <g transform="translate(542, 212)">
+      <rect width="156" height="60" rx="10" fill="rgba(248,113,113,0.07)" stroke="rgba(248,113,113,0.20)" stroke-width="1"/>
+      <text x="20" y="38" font-size="30" font-weight="800" fill="#f87171">17</text>
+      <text x="72" y="26" font-size="10.5" font-weight="700" fill="rgba(226,232,240,0.85)" letter-spacing="0.5">MODULES</text>
+      <text x="72" y="42" font-size="9" fill="rgba(148,163,184,0.7)">full CRUD</text>
+    </g>
+    <g transform="translate(708, 212)">
+      <rect width="156" height="60" rx="10" fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.20)" stroke-width="1"/>
+      <text x="20" y="38" font-size="30" font-weight="800" fill="#38bdf8">30</text>
+      <text x="74" y="26" font-size="10.5" font-weight="700" fill="rgba(226,232,240,0.85)" letter-spacing="0.5">ISMS CLAUSES</text>
+      <text x="74" y="42" font-size="9" fill="rgba(148,163,184,0.7)">clauses 4&#8211;10</text>
+    </g>
+  </g>
+
+  <!-- Tech tags -->
+  <g font-family="'Courier New',monospace" font-size="9" opacity="0.85">
+    <g transform="translate(210, 292)"><rect width="62" height="20" rx="4" fill="rgba(139,121,201,0.10)" stroke="rgba(139,121,201,0.25)" stroke-width="0.5"/><text x="31" y="14" text-anchor="middle" fill="rgba(196,181,253,0.8)">PHP 8.2</text></g>
+    <g transform="translate(280, 292)"><rect width="74" height="20" rx="4" fill="rgba(255,45,32,0.10)" stroke="rgba(255,45,32,0.25)" stroke-width="0.5"/><text x="37" y="14" text-anchor="middle" fill="rgba(252,165,165,0.85)">Laravel 12</text></g>
+    <g transform="translate(362, 292)"><rect width="62" height="20" rx="4" fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.25)" stroke-width="0.5"/><text x="31" y="14" text-anchor="middle" fill="rgba(125,211,252,0.85)">MySQL 8</text></g>
+    <g transform="translate(432, 292)"><rect width="60" height="20" rx="4" fill="rgba(248,113,113,0.10)" stroke="rgba(248,113,113,0.25)" stroke-width="0.5"/><text x="30" y="14" text-anchor="middle" fill="rgba(252,165,165,0.85)">Apache</text></g>
+    <g transform="translate(500, 292)"><rect width="54" height="20" rx="4" fill="rgba(99,102,241,0.10)" stroke="rgba(99,102,241,0.25)" stroke-width="0.5"/><text x="27" y="14" text-anchor="middle" fill="rgba(165,180,252,0.85)">Blade</text></g>
+    <g transform="translate(562, 292)"><rect width="92" height="20" rx="4" fill="rgba(34,211,238,0.10)" stroke="rgba(34,211,238,0.25)" stroke-width="0.5"/><text x="46" y="14" text-anchor="middle" fill="rgba(103,232,249,0.85)">No build step</text></g>
+  </g>
+
+  <!-- Right: LAMP stack tiers -->
+  <text x="1020" y="80" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="700" fill="rgba(148,163,184,0.7)" letter-spacing="3">LAMP STACK</text>
+  <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+    <!-- Linux -->
+    <g transform="translate(895, 92)">
+      <rect width="250" height="36" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(251,191,36,0.30)" stroke-width="1"/>
+      <rect width="4" height="36" rx="2" fill="#fbbf24"/>
+      <circle cx="24" cy="18" r="11" fill="rgba(251,191,36,0.18)"/><text x="24" y="22" text-anchor="middle" font-size="12" font-weight="800" fill="#fbbf24">L</text>
+      <text x="44" y="15" font-size="8" fill="rgba(148,163,184,0.7)" letter-spacing="1">OPERATING SYSTEM</text>
+      <text x="44" y="29" font-size="13" font-weight="700" fill="#e2e8f0">Linux</text>
+    </g>
+    <!-- Apache -->
+    <g transform="translate(895, 136)">
+      <rect width="250" height="36" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(248,113,113,0.30)" stroke-width="1"/>
+      <rect width="4" height="36" rx="2" fill="#f87171"/>
+      <circle cx="24" cy="18" r="11" fill="rgba(248,113,113,0.18)"/><text x="24" y="22" text-anchor="middle" font-size="12" font-weight="800" fill="#f87171">A</text>
+      <text x="44" y="15" font-size="8" fill="rgba(148,163,184,0.7)" letter-spacing="1">WEB SERVER</text>
+      <text x="44" y="29" font-size="13" font-weight="700" fill="#e2e8f0">Apache 2.4</text>
+    </g>
+    <!-- MySQL -->
+    <g transform="translate(895, 180)">
+      <rect width="250" height="36" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(56,189,248,0.30)" stroke-width="1"/>
+      <rect width="4" height="36" rx="2" fill="#38bdf8"/>
+      <circle cx="24" cy="18" r="11" fill="rgba(56,189,248,0.18)"/><text x="24" y="22" text-anchor="middle" font-size="12" font-weight="800" fill="#38bdf8">M</text>
+      <text x="44" y="15" font-size="8" fill="rgba(148,163,184,0.7)" letter-spacing="1">DATABASE</text>
+      <text x="44" y="29" font-size="13" font-weight="700" fill="#e2e8f0">MySQL 8</text>
+    </g>
+    <!-- PHP / Laravel -->
+    <g transform="translate(895, 224)">
+      <rect width="250" height="36" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(167,139,250,0.35)" stroke-width="1"/>
+      <rect width="4" height="36" rx="2" fill="#a78bfa"/>
+      <circle cx="24" cy="18" r="11" fill="rgba(167,139,250,0.18)"/><text x="24" y="22" text-anchor="middle" font-size="12" font-weight="800" fill="#a78bfa">P</text>
+      <text x="44" y="15" font-size="8" fill="rgba(148,163,184,0.7)" letter-spacing="1">APPLICATION</text>
+      <text x="44" y="29" font-size="13" font-weight="700" fill="#e2e8f0">PHP · Laravel 12</text>
+    </g>
+  </g>
+
+  <!-- Edition tag -->
+  <g transform="translate(1050, 14)">
+    <rect width="80" height="20" rx="5" fill="rgba(255,45,32,0.12)" stroke="rgba(255,45,32,0.30)" stroke-width="0.5"/>
+    <text x="40" y="14" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" font-weight="700" fill="rgba(252,165,165,0.9)">v1.0 · MIT</text>
+  </g>
+</svg>

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="banner.svg" alt="IT-GRC Portal — LAMP / Laravel Edition" width="100%">
+</p>
+
 # IT-GRC Portal — LAMP / Laravel Edition
 
 [![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?logo=php&logoColor=white)](https://php.net)
