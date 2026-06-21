@@ -1,11 +1,18 @@
 <?php
 
+use App\Http\Controllers\AssetController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClauseController;
 use App\Http\Controllers\ControlController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\IncidentController;
+use App\Http\Controllers\InterestedPartyController;
+use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\RiskController;
 use App\Http\Controllers\SoaController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,4 +59,17 @@ Route::middleware('auth')->group(function () {
     Route::get('soa', [SoaController::class, 'index'])->name('soa.index');
     Route::get('soa/{control}/edit', [SoaController::class, 'edit'])->name('soa.edit');
     Route::put('soa/{control}', [SoaController::class, 'update'])->name('soa.update')->middleware('permission:soa:write');
+
+    // ── Register modules (resourceful CRUD) ───────────────────────────────
+    Route::resource('documents', DocumentController::class)->except(['show']);
+    Route::resource('suppliers', SupplierController::class)->except(['show']);
+    Route::resource('incidents', IncidentController::class)->except(['show']);
+    Route::resource('assets', AssetController::class)->except(['show']);
+    Route::resource('objectives', ObjectiveController::class)->except(['show']);
+    Route::resource('interested-parties', InterestedPartyController::class)
+        ->parameters(['interested-parties' => 'interested_party'])->except(['show']);
+
+    // ── Policies (+ acknowledge) ──────────────────────────────────────────
+    Route::resource('policies', PolicyController::class);
+    Route::post('policies/{policy}/acknowledge', [PolicyController::class, 'acknowledge'])->name('policies.acknowledge');
 });
