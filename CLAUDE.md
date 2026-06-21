@@ -18,17 +18,30 @@ server-rendered Blade views.
   `controls:own`. Superusers bypass all checks. Six seeded roles (CISO, GRC_Manager, Risk_Owner,
   Control_Owner, Auditor, Viewer) match the source `DEFAULT_ROLES`.
 
-## Conventions for porting modules (Phase 3)
-- One resourceful controller + route group per module; route names `controls.index`, `controls.show`, …
-  The sidebar in `resources/views/layouts/app.blade.php` renders each item only if `Route::has()`,
-  so adding routes auto-populates the nav.
+## Status — complete
+All 17 GRC modules + analytics are implemented (Phases 1–5). The app is feature-complete and
+mirrors the original. A multi-agent adversarial review + a full-page smoke-test suite back it up.
+
+## Conventions (how the code is organized)
+- One controller + route group per module; resourceful route names (`controls.index`, `controls.show`,
+  …). The sidebar in `resources/views/layouts/app.blade.php` renders each item only if `Route::has()`,
+  so the nav reflects exactly what's wired.
 - Eloquent models: `HasUuids`, `$fillable`, enum-ish strings kept as plain strings (validated in
-  requests), accessors for derived fields. Ref IDs (`RISK-001`, `DOC-001`, …) generated in the
-  controller/model on create.
-- Pure derivations live in `App\Support\Scoring` (ported 1:1 from the FastAPI models, unit-tested):
-  `riskLevel`, `computeRag`, `aggregateScore`, `taskIsOverdue`. Reuse these in model accessors.
-- Blade: every module page `@extends('layouts.app')`, `@section('title')`, `@section('content')`.
-  Index = filter bar + table; detail = card layout; create/edit = modal or form view.
+  requests via `$rules`), accessors for derived fields (`Metric.rag`, `Task.overdue`,
+  `Assessment.score/avg_maturity`, `TrainingCampaign.completion_rate`). Ref IDs (`RISK-001`,
+  `DOC-001`, …) via `App\Support\Refs::next()`.
+- **Support helpers** (`app/Support/`): `Scoring` (riskLevel / computeRag / aggregateScore /
+  taskIsOverdue — ported 1:1, unit-tested), `Refs`, `Activity` (activity-log writes),
+  `Posture` (headline ISMS scores + daily snapshot), `Analytics` (heatmap / framework coverage /
+  my-work).
+- **Blade components** (`resources/views/components/`, anonymous): `card`, `badge` (status/theme
+  colour map), `field` (form input — list options are value=label; assoc options key=value via
+  `array_is_list`), `owner-select`, `heatmap`. Every page `@extends('layouts.app')` with
+  `@section('title')` + `@section('content')`. Index = filter bar + table; show = card layout;
+  create/edit = `form.blade.php` (shared, keyed on `$item->exists`).
+- Nested children (audit findings, assessment items, training records, control mappings, metric
+  measurements) and special actions (task decision, policy acknowledge, assessment populate,
+  evidence upload/download) are extra routes on the owning controller.
 
 ## Source-of-truth inventory
 The complete model/route/page/seed inventory used to drive this port is the original repo's

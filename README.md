@@ -54,19 +54,31 @@ vendor questionnaires), Analytics (risk heatmap, posture trend, framework covera
 
 ---
 
-## Build status — phased port
+## Build status — feature complete ✅
 
-This repository is being built in phases. Each phase is a runnable, CI-validated milestone.
+The port was delivered in five runnable, CI-validated milestones — all complete:
 
-- [x] **Phase 1 — Platform shell**: Laravel skeleton, MySQL config, Docker (LAMP), CI, session
-      auth, 6-role RBAC, base layout + sidebar, dashboard, helper scoring logic (+ unit tests).
-- [ ] **Phase 2 — Data layer**: all migrations, Eloquent models, and seeders (148 controls, ISMS
-      clauses, mandatory documents, crosswalk, sample data).
-- [ ] **Phase 3 — Modules**: controllers, routes and Blade views for every GRC register.
-- [ ] **Phase 4 — Analytics**: dashboard posture scores, risk heatmap, framework coverage, reports.
-- [ ] **Phase 5 — Docs & polish**.
+- [x] **Phase 1 — Platform shell**: Laravel 11 skeleton, MySQL config, Docker (LAMP), CI, session
+      auth, 6-role RBAC, base layout + sidebar, helper scoring logic (+ unit tests).
+- [x] **Phase 2 — Data layer**: 19 migrations, 24 Eloquent models, and seeders carrying the exact
+      **148 controls, 96 crosswalk mappings, 30 ISMS clauses, 17 mandatory documents** + sample data.
+- [x] **Phase 3 — Modules**: controllers, routes and Blade views for **all 17 GRC registers**.
+- [x] **Phase 4 — Analytics**: posture scores + daily snapshots, risk heatmap, posture trend,
+      framework-coverage matrix, CSV reports, cross-register reminders.
+- [x] **Phase 5 — Docs & polish**, incl. a multi-agent adversarial code review and a full-page
+      smoke-test suite.
 
-The left sidebar auto-reveals each module as its routes come online.
+### Modules
+
+Controls (with cross-framework crosswalk) · Risk Register (5×5 inherent/residual) · ISMS Clauses
+(4–10) · Statement of Applicability · Documented Information (7.5) · Policies (Markdown +
+acknowledgments) · Suppliers (5.19–5.23) · Incidents (5.24–5.28) · Assets · Interested Parties
+(4.2) · IS Objectives (6.2) · Metrics KPI/KRI/KCI (9.1, with trend chart) · Workflow Tasks &
+Approvals · Assessments (CSA / maturity / vendor questionnaire, populate-from-framework) · Audits &
+Findings · Awareness & Training · Evidence (file uploads) · Dashboard · Analytics · Frameworks ·
+Reports · Reminders.
+
+The left sidebar auto-reveals each module via `Route::has()`.
 
 ---
 
