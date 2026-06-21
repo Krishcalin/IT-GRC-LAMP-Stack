@@ -4,7 +4,7 @@ FROM php:8.2-apache
 # System packages + PHP extensions
 RUN apt-get update && apt-get install -y --no-install-recommends \
         git unzip libzip-dev libicu-dev libonig-dev default-mysql-client \
-    && docker-php-ext-install pdo_mysql bcmath intl zip opcache \
+    && docker-php-ext-install pdo_mysql mbstring bcmath intl zip opcache pcntl \
     && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
 
