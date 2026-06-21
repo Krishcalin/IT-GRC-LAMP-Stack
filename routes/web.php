@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\AuditController;
@@ -9,11 +10,14 @@ use App\Http\Controllers\ControlController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\EvidenceController;
+use App\Http\Controllers\FrameworkController;
 use App\Http\Controllers\IncidentController;
 use App\Http\Controllers\InterestedPartyController;
 use App\Http\Controllers\MetricController;
 use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\PolicyController;
+use App\Http\Controllers\ReminderController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RiskController;
 use App\Http\Controllers\SoaController;
 use App\Http\Controllers\SupplierController;
@@ -35,6 +39,13 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    // ── Analytics / frameworks / reports / reminders ──────────────────────
+    Route::get('analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
+    Route::get('frameworks', [FrameworkController::class, 'index'])->name('frameworks.index');
+    Route::get('reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('reports/{type}/export', [ReportController::class, 'export'])->name('reports.export');
+    Route::get('reminders', [ReminderController::class, 'index'])->name('reminders.index');
 
     // ── Controls + cross-framework crosswalk ──────────────────────────────
     Route::get('controls', [ControlController::class, 'index'])->name('controls.index');

@@ -22,6 +22,8 @@
         'Overview' => [
             ['Dashboard', 'dashboard', 'home'],
             ['Analytics', 'analytics.index', 'chart'],
+            ['Reports', 'reports.index', 'doc'],
+            ['Reminders', 'reminders.index', 'warn'],
         ],
         'Governance' => [
             ['Controls', 'controls.index', 'shield'],
