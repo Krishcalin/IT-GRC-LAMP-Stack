@@ -1,18 +1,24 @@
 <?php
 
+use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\AuditController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClauseController;
 use App\Http\Controllers\ControlController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\EvidenceController;
 use App\Http\Controllers\IncidentController;
 use App\Http\Controllers\InterestedPartyController;
+use App\Http\Controllers\MetricController;
 use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\RiskController;
 use App\Http\Controllers\SoaController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TrainingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,4 +78,37 @@ Route::middleware('auth')->group(function () {
     // ── Policies (+ acknowledge) ──────────────────────────────────────────
     Route::resource('policies', PolicyController::class);
     Route::post('policies/{policy}/acknowledge', [PolicyController::class, 'acknowledge'])->name('policies.acknowledge');
+
+    // ── Metrics (+ measurements) ──────────────────────────────────────────
+    Route::resource('metrics', MetricController::class);
+    Route::post('metrics/{metric}/measurements', [MetricController::class, 'addMeasurement'])->name('metrics.measurements.store');
+
+    // ── Workflow tasks (+ approval decision) ──────────────────────────────
+    Route::resource('tasks', TaskController::class)->except(['show']);
+    Route::post('tasks/{task}/decision', [TaskController::class, 'decision'])->name('tasks.decision');
+
+    // ── Assessments (+ populate + items) ──────────────────────────────────
+    Route::resource('assessments', AssessmentController::class);
+    Route::post('assessments/{assessment}/populate', [AssessmentController::class, 'populate'])->name('assessments.populate');
+    Route::post('assessments/{assessment}/items', [AssessmentController::class, 'storeItem'])->name('assessments.items.store');
+    Route::put('assessments/{assessment}/items/{item}', [AssessmentController::class, 'updateItem'])->name('assessments.items.update');
+    Route::delete('assessments/{assessment}/items/{item}', [AssessmentController::class, 'destroyItem'])->name('assessments.items.destroy');
+
+    // ── Audits (+ findings) ───────────────────────────────────────────────
+    Route::resource('audits', AuditController::class);
+    Route::post('audits/{audit}/findings', [AuditController::class, 'storeFinding'])->name('audits.findings.store');
+    Route::put('audits/{audit}/findings/{finding}', [AuditController::class, 'updateFinding'])->name('audits.findings.update');
+    Route::delete('audits/{audit}/findings/{finding}', [AuditController::class, 'destroyFinding'])->name('audits.findings.destroy');
+
+    // ── Awareness & training (+ records) ──────────────────────────────────
+    Route::resource('training', TrainingController::class);
+    Route::post('training/{training}/records', [TrainingController::class, 'storeRecord'])->name('training.records.store');
+    Route::put('training/{training}/records/{record}', [TrainingController::class, 'updateRecord'])->name('training.records.update');
+    Route::delete('training/{training}/records/{record}', [TrainingController::class, 'destroyRecord'])->name('training.records.destroy');
+
+    // ── Evidence (file uploads) ───────────────────────────────────────────
+    Route::get('evidence', [EvidenceController::class, 'index'])->name('evidence.index');
+    Route::post('evidence', [EvidenceController::class, 'store'])->name('evidence.store');
+    Route::get('evidence/{evidence}/download', [EvidenceController::class, 'download'])->name('evidence.download');
+    Route::delete('evidence/{evidence}', [EvidenceController::class, 'destroy'])->name('evidence.destroy');
 });
