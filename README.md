@@ -116,14 +116,26 @@ MariaDB 10.6+), Composer 2.
 ## Testing & CI
 
 ```bash
-php artisan test            # Unit (scoring logic) + Feature (auth/RBAC) on in-memory SQLite
+php artisan test            # Unit + Feature on in-memory SQLite
 ```
+
+Test suite (`tests/`):
+- **Unit** — `ScoringTest`: the ported scoring helpers (risk level, RAG, assessment score,
+  task-overdue) asserted against the original FastAPI outputs.
+- **Feature** — `AuthTest` (login + RBAC), `SeederTest` (the full seed loads exact counts —
+  148 controls / 96 mappings / 30 clauses / 17 docs — and is idempotent), and **`SmokeTest`**
+  (logs in and renders **every** page + key detail pages, asserting HTTP 200 — catches view /
+  Blade-component / route-wiring regressions).
 
 GitHub Actions (`.github/workflows/ci.yml`) on every push/PR:
 - **Lint** — `php -l` across `app/ config/ database/ routes/ tests/`
 - **Test** — `php artisan test` (Unit + Feature on SQLite)
 - **Migrate & seed** — against a real **MySQL 8** service, then `migrate:fresh` to verify a clean
   build. CI is the authoritative validator for the MySQL path.
+
+> Built without a local PHP runtime, so correctness was hardened by a **multi-agent adversarial
+> code review** across routing, Blade, Eloquent, schema, PHP and CI dimensions (each finding
+> independently verified) plus the full-page smoke suite above.
 
 ---
 

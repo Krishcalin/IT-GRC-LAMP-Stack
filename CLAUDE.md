@@ -49,10 +49,24 @@ The complete model/route/page/seed inventory used to drive this port is the orig
 Key counts: 93 Annex A + 12 ENR + 22 CSF + 13 SOC2 + 8 IEC 62443 = **148 controls**, 96 crosswalk
 mappings, 30 ISMS clauses, 17 mandatory documents, 6 roles.
 
+## Testing
+- `tests/Unit/ScoringTest.php` — pure scoring helpers vs the original outputs.
+- `tests/Feature/AuthTest.php` — login, inactive-user rejection, role seeding.
+- `tests/Feature/SeederTest.php` — full `DatabaseSeeder` loads exact counts (148/96/30/17/…),
+  framework spread (93/12/22/13/8), and is idempotent.
+- `tests/Feature/SmokeTest.php` — acting-as admin, GETs **every** index page + key detail/show
+  pages and asserts 200. Guard for view/component/route-wiring regressions (it's what would have
+  caught the once-missing `<x-card>` component).
+- Feature tests run on in-memory SQLite (`RefreshDatabase`); the MySQL path is validated by CI.
+  When changing code, extend the smoke + seeder tests so CI keeps catching render/wiring breaks.
+
 ## Important constraints
-- **No PHP/Composer/MySQL available on the dev box** — CI (`.github/workflows/ci.yml`) is the
-  authoritative validator: `php -l` lint, `php artisan test` (SQLite), and `migrate --seed` +
-  `migrate:fresh` against a MySQL 8 service.
+- **No PHP/Composer/MySQL on the dev box** — CI (`.github/workflows/ci.yml`) is the authoritative
+  validator: `php -l` lint, `php artisan test` (SQLite), `migrate --seed` + `migrate:fresh` against
+  a MySQL 8 service. The finished build was additionally hardened with a **multi-agent adversarial
+  review** (routing / Blade / Eloquent / schema / PHP / CI dimensions, each finding verified).
+- **Toolchain:** Laravel 12 (11.x is blocked by Composer security advisories). CI uses
+  `actions/checkout@v5` + `shivammathur/setup-php@v2` (Node 24).
 - **IP:** all standard text (ISO/NIST/SOC 2/ISA) is **paraphrased**, never reproduced — same rule
   as the source repo.
 
