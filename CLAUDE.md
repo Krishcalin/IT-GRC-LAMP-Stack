@@ -2,12 +2,12 @@
 
 ## What this is
 A faithful port of the original IT-GRC portal (FastAPI + React + PostgreSQL,
-`github.com/Krishcalin/IT-GRC`) to an idiomatic **Laravel 11 / LAMP** monolith so LAMP/Laravel
+`github.com/Krishcalin/IT-GRC`) to an idiomatic **Laravel 12 / LAMP** monolith so LAMP/Laravel
 shops can adopt it. Same data model, frameworks, control catalogs and features; re-expressed with
 server-rendered Blade views.
 
 ## Stack & deliberate choices
-- **Laravel 11 + PHP 8.2 + MySQL 8 + Apache 2.4** (classic LAMP, MVC monolith).
+- **Laravel 12 + PHP 8.2 + MySQL 8 + Apache 2.4** (classic LAMP, MVC monolith).
 - **Blade + Tailwind/Alpine/Chart.js via CDN** — *no Node/Vite build step* (keeps it pure LAMP and
   trivially adoptable; for production you may self-host or compile Tailwind).
 - **UUID primary keys** everywhere (`HasUuids`), mirroring the source schema.

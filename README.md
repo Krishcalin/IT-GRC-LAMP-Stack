@@ -1,7 +1,7 @@
 # IT-GRC Portal — LAMP / Laravel Edition
 
 [![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?logo=php&logoColor=white)](https://php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
 [![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)](https://mysql.com)
 [![Apache](https://img.shields.io/badge/Apache-2.4-D22128?logo=apache&logoColor=white)](https://httpd.apache.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -26,7 +26,7 @@ capability as a single Laravel app that drops into that environment:
 
 | | Original | LAMP Edition (this repo) |
 |---|----------|--------------------------|
-| Backend | Python 3.12 + FastAPI | **PHP 8.2 + Laravel 11** |
+| Backend | Python 3.12 + FastAPI | **PHP 8.2 + Laravel 12** |
 | Frontend | React 18 + TypeScript (SPA) | **Blade + Tailwind (server-rendered)** |
 | Database | PostgreSQL 16 | **MySQL 8** |
 | Web server | Uvicorn | **Apache 2.4** |
@@ -58,7 +58,7 @@ vendor questionnaires), Analytics (risk heatmap, posture trend, framework covera
 
 The port was delivered in five runnable, CI-validated milestones — all complete:
 
-- [x] **Phase 1 — Platform shell**: Laravel 11 skeleton, MySQL config, Docker (LAMP), CI, session
+- [x] **Phase 1 — Platform shell**: Laravel 12 skeleton, MySQL config, Docker (LAMP), CI, session
       auth, 6-role RBAC, base layout + sidebar, helper scoring logic (+ unit tests).
 - [x] **Phase 2 — Data layer**: 19 migrations, 24 Eloquent models, and seeders carrying the exact
       **148 controls, 96 crosswalk mappings, 30 ISMS clauses, 17 mandatory documents** + sample data.
